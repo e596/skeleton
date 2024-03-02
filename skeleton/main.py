@@ -7,6 +7,8 @@ icon = pygame.image.load('images/3792031_halloween_horror_skeleton_skull_icon.pn
 pygame.display.set_icon(icon)
 
 player = pygame.image.load('images/skeleton_image1.png')
+player_right = player
+player_left = pygame.transform.flip(player, True, False)
 background = pygame.image.load('images/248880a15879483281825de6f0b4c0f4HEqGnLzIi2JXz9nc-0.png')
 
 player_speed = 5
@@ -21,8 +23,10 @@ while running:
     keys = pygame.key.get_pressed()
     if keys[pygame.K_LEFT]:
         player_x -= player_speed
+        player = player_left
     elif keys[pygame.K_RIGHT]:
         player_x += player_speed
+        player = player_right
 
     pygame.display.update()
 
