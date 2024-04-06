@@ -6,13 +6,13 @@ pygame.display.set_caption("Skeleton")
 icon = pygame.image.load('images/3792031_halloween_horror_skeleton_skull_icon.png')
 pygame.display.set_icon(icon)
 
-player = pygame.image.load('images/skeleton_image1.png')
+player = pygame.image.load('images/Без имени-1.png')
 player_right = player
 player_left = pygame.transform.flip(player, True, False)
 background = pygame.image.load('images/248880a15879483281825de6f0b4c0f4HEqGnLzIi2JXz9nc-0.png')
 health = pygame.image.load('images/360_F_487872099_QimOSUlugZRHlny2jgFHaCy5R7m0UYmT.png')
 
-player_speed = 5
+player_speed = 2
 player_x = 0
 
 running = True
