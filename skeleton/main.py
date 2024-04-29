@@ -12,7 +12,7 @@ player_left = pygame.transform.flip(player, True, False)
 background = pygame.image.load('images/248880a15879483281825de6f0b4c0f4HEqGnLzIi2JXz9nc-0.png')
 health = pygame.image.load('images/360_F_487872099_QimOSUlugZRHlny2jgFHaCy5R7m0UYmT.png')
 
-player_speed = 5
+player_speed = 2
 player_x = 0
 player_y = 0
 
@@ -35,15 +35,15 @@ while running:
         player = player_right
 
     if not is_jump:
-     if keys[pygame.K_UP]:
-        is_jump = True
+        if keys[pygame.K_UP]:
+            is_jump = True
     else:
         if jump_count >= -5:
             if jump_count > 0:
                 player_y -= (jump_count ** 2) / 2
             else:
                 player_y += (jump_count ** 2) / 2
-            jump_count -= 1
+            jump_count -= 0.1
         else:
             is_jump = False
             jump_count = 5
