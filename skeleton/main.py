@@ -20,6 +20,7 @@ is_jump = False
 jump_count = 5
 
 bg_sound = pygame.mixer.Sound('sounds/caverndry_final.mp3')
+jump_sound = pygame.mixer.Sound('sounds/411c45ceaa06c92.mp3')
 bg_sound.play(-1)
 
 running = True
@@ -50,6 +51,7 @@ while running:
         else:
             is_jump = False
             jump_count = 5
+            pygame.mixer.Sound.play(jump_sound)
 
     pygame.display.update()
 
