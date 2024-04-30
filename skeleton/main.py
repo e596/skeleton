@@ -12,12 +12,13 @@ player_left = pygame.transform.flip(player, True, False)
 background = pygame.image.load('images/248880a15879483281825de6f0b4c0f4HEqGnLzIi2JXz9nc-0.png')
 health = pygame.image.load('images/360_F_487872099_QimOSUlugZRHlny2jgFHaCy5R7m0UYmT.png')
 
-player_speed = 2
 player_x = 0
 player_y = 0
 
 is_jump = False
 jump_count = 5
+
+bg_x = 0
 
 bg_sound = pygame.mixer.Sound('sounds/caverndry_final.mp3')
 jump_sound = pygame.mixer.Sound('sounds/411c45ceaa06c92.mp3')
@@ -26,17 +27,19 @@ bg_sound.play(-1)
 running = True
 while running:
 
-    screen.blit(background, (0, 0))
+    screen.blit(background, (bg_x, 0))
+    screen.blit(background, (bg_x + 1024, 0))
+    screen.blit(background, (bg_x - 1024, 0))
     screen.blit(player, (player_x, player_y))
     screen.blit(health, (-270, 300))
 
     keys = pygame.key.get_pressed()
     if keys[pygame.K_LEFT]:
-        player_x -= player_speed
         player = player_left
+        bg_x += 1
     elif keys[pygame.K_RIGHT]:
-        player_x += player_speed
         player = player_right
+        bg_x -= 1
 
     if not is_jump:
         if keys[pygame.K_UP]:
@@ -52,6 +55,9 @@ while running:
             is_jump = False
             jump_count = 5
             pygame.mixer.Sound.play(jump_sound)
+
+    if bg_x == -1024 or bg_x == 1024:
+        bg_x = 0
 
     pygame.display.update()
 
