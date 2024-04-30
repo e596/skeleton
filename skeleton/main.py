@@ -19,6 +19,9 @@ player_y = 0
 is_jump = False
 jump_count = 5
 
+bg_sound = pygame.mixer.Sound('sounds/caverndry_final.mp3')
+bg_sound.play(-1)
+
 running = True
 while running:
 
